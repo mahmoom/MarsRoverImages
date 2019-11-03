@@ -47,7 +47,7 @@ extension MarsRoverNasaApi: EndPointType {
             return .requestParameters(bodyParameters: nil,
                                       bodyEncoding: .urlEncoding,
                                       urlParameters: ["page":page,
-                                                      "api_key":NetworkManager.NasaAPIKey])
+                                                      "sol":1000, "api_key":NetworkManager.NasaAPIKey])
         default:
             return .requestParameters(bodyParameters: nil,
                                       bodyEncoding: .urlEncoding,

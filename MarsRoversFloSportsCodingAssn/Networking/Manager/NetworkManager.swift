@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 protocol NetworkManagerProtocol {
     func getRoverPhotos(page: Int, completion: @escaping (Result<[RoverImageData], DataResponseError>)->())
@@ -17,6 +18,24 @@ struct NetworkManager: NetworkManagerProtocol {
     static let environment : NetworkEnvironment = .production
     static let NasaAPIKey = "7h6pieYU2QhwhpnspamlJt0rvjUpmyrHnxsXaEju"
     let router = Router<MarsRoverNasaApi>()
+    
+//    func getPhotoFromURL(url: String, ){
+////        guard let safeUrlString = marsPhotoUrl else{return}
+//        guard let safeUrl = URL(string: safeUrlString) else{return}
+//        
+//        marsPhotoImageView.kf.setImage(with: safeUrl, placeholder: UIImage(named: "placeholder_image"), options: [.transition(.fade(1))], progressBlock: nil) { [weak self] result in
+//            switch result{
+//            case .success(let value):
+//                if value.source.url != safeUrl{
+//                    self?.marsPhotoImageView.image = UIImage(named: "placeholder_image")
+//                }
+//            case .failure(let error):
+//                print("Job failed: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
+    
     
     func getRoverPhotos(page: Int, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
         router.request(.page(page: page)) { data, response, error in

@@ -20,32 +20,11 @@ class MarsPhotoCollectionViewCell: UICollectionViewCell{
         return imageView
     }()
     
-//    var request: AnyObject?
-    
-    var marsPhotoUrl: String? {
-        didSet{
-//            self.marsPhotoImageView.image =
-            guard let safeUrlString = marsPhotoUrl else{return}
-            guard let safeUrl = URL(string: safeUrlString) else{return}
-            
-            marsPhotoImageView.kf.setImage(with: safeUrl, placeholder: UIImage(named: "placeholder_image"), options: [.transition(.fade(1))], progressBlock: nil) { [weak self] result in
-                switch result{
-                case .success(let value):
-                    if value.source.url != safeUrl{
-                        self?.marsPhotoImageView.image = UIImage(named: "placeholder_image")
-                    }
-                case .failure(let error):
-                    print("Job failed: \(error.localizedDescription)")
-                }
-            }
-            
-        }
-    }
+    var marsPhotoUrl: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,4 +36,5 @@ class MarsPhotoCollectionViewCell: UICollectionViewCell{
         addSubview(marsPhotoImageView)
         marsPhotoImageView.anchor(top: safeAreaLayoutGuide.topAnchor, paddingTop: padding, bottom: safeAreaLayoutGuide.bottomAnchor, paddingBottom: padding, left: safeAreaLayoutGuide.leftAnchor, paddingLeft: padding, right: safeAreaLayoutGuide.rightAnchor, paddingRight: padding, width: 0, height: 0)
     }
+    
 }
