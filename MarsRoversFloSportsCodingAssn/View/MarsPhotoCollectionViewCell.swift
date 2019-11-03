@@ -7,39 +7,43 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MarsPhotoCollectionViewCell: UICollectionViewCell{
     
     let marsPhotoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-//        imageView.backgroundColor = .yellow
         imageView.image = UIImage(named: "placeholder_image")
+        imageView.kf.indicatorType = .activity
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    var request: AnyObject?
+//    var request: AnyObject?
     
     var marsPhotoUrl: String? {
         didSet{
 //            self.marsPhotoImageView.image =
-            guard let safeUrl = marsPhotoUrl else{return}
-//            print(safeUrl)
-            let avatarRequest = ImageRequest(url: URL(string: safeUrl)!)
-            self.request = avatarRequest
-            avatarRequest.load(withCompletion: { [weak self] (avatar: UIImage?) in
-                guard let avatar = avatar else {
-                    return
+            guard let safeUrlString = marsPhotoUrl else{return}
+            guard let safeUrl = URL(string: safeUrlString) else{return}
+            
+            marsPhotoImageView.kf.setImage(with: safeUrl, placeholder: UIImage(named: "placeholder_image"), options: [.transition(.fade(1))], progressBlock: nil) { [weak self] result in
+                switch result{
+                case .success(let value):
+                    if value.source.url != safeUrl{
+                        self?.marsPhotoImageView.image = UIImage(named: "placeholder_image")
+                    }
+                case .failure(let error):
+                    print("Job failed: \(error.localizedDescription)")
                 }
-                self?.marsPhotoImageView.image = avatar
-            })
+            }
+            
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
         setupViews()
         
     }

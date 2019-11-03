@@ -21,14 +21,6 @@ struct RoverImageData: Codable{
         case imageUrl = "img_src"
         case earthDate = "earth_date"
     }
-    
-    init(input: [String: Any]) {
-        //        if let entry = dictionary["entry"] as? [String: Any] {
-        self.id = input["id"] as? Int
-        self.sol = input["sol"] as? Int
-        self.earthDate = input["earth_date"] as? String
-        self.imageUrl = input["img_src"] as? String
-    }
 }
 
 struct Wrapper<T: Decodable>: Decodable {
