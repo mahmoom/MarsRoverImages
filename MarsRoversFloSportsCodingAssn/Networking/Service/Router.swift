@@ -32,13 +32,13 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                 timeoutInterval: 10.0)
+                                 timeoutInterval: 5.0)
         
         request.httpMethod = route.httpMethod.rawValue
         do {
             switch route.task {
             case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("mars-photos/api/v1/rovers/curiosity/photos", forHTTPHeaderField: "")
             case .requestParameters(let bodyParameters,
                                     let bodyEncoding,
                                     let urlParameters):

@@ -13,8 +13,13 @@ enum NetworkEnvironment {
     case production
 }
 
+
+
 public enum MarsRoverNasaApi {
     case page(page: Int)
+    case curiosity(page: Int, camera: String?, earthDate: String)
+    case spirit(page: Int, camera: String?, earthDate: String)
+    case opportunity(page: Int, camera: String?, earthDate: String)
     case def
 }
 
@@ -32,6 +37,12 @@ extension MarsRoverNasaApi: EndPointType {
     
     var path: String {
         switch self {
+        case .curiosity(_):
+            return "mars-photos/api/v1/rovers/curiosity/photos"
+        case .opportunity(_):
+            return "mars-photos/api/v1/rovers/opportunity/photos"
+        case .spirit(_):
+            return "mars-photos/api/v1/rovers/spirit/photos"
         default:
             return "mars-photos/api/v1/rovers/curiosity/photos"
         }
@@ -42,17 +53,42 @@ extension MarsRoverNasaApi: EndPointType {
     }
     
     var task: HTTPTask {
+        
+        func generateParams(page: Int, earthDate: String = Constants.defaultEarthDate, camera: String?) -> Parameters{
+            var params = Parameters()
+            params["earth_date"] = earthDate
+            if let safeCamera = camera{
+                params["camera"] = safeCamera
+            }
+            params["page"] = page
+            params["api_key"] = NetworkManager.NasaAPIKey
+            return params
+        }
         switch self {
+            //the original case with default params
         case .page(let page):
             return .requestParameters(bodyParameters: nil,
                                       bodyEncoding: .urlEncoding,
                                       urlParameters: ["page":page,
                                                       "sol":1000, "api_key":NetworkManager.NasaAPIKey])
+        case .curiosity(let page, let camera, let earthDate):
+            return .requestParameters(bodyParameters: nil,
+                                      bodyEncoding: .urlEncoding,
+                                      urlParameters: generateParams(page: page, earthDate: earthDate, camera: camera))
+        case .opportunity(let page, let camera, let earthDate):
+            return .requestParameters(bodyParameters: nil,
+                                  bodyEncoding: .urlEncoding,
+                                  urlParameters: generateParams(page: page, earthDate: earthDate, camera: camera))
+        case .spirit(let page, let camera, let earthDate):
+            return .requestParameters(bodyParameters: nil,
+                                  bodyEncoding: .urlEncoding,
+                                  urlParameters: generateParams(page: page, earthDate: earthDate, camera: camera))
         default:
             return .requestParameters(bodyParameters: nil,
                                       bodyEncoding: .urlEncoding,
                                       urlParameters: ["api_key":NetworkManager.NasaAPIKey])
         }
+        
     }
     
     var headers: HTTPHeaders? {

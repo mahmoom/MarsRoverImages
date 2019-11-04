@@ -12,6 +12,9 @@ import Kingfisher
 
 protocol NetworkManagerProtocol {
     func getRoverPhotos(page: Int, completion: @escaping (Result<[RoverImageData], DataResponseError>)->())
+    func getCuriosityPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->())
+    func getOpportunityPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->())
+    func getSpiritPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->())
 }
 
 struct NetworkManager: NetworkManagerProtocol {
@@ -19,22 +22,63 @@ struct NetworkManager: NetworkManagerProtocol {
     static let NasaAPIKey = "7h6pieYU2QhwhpnspamlJt0rvjUpmyrHnxsXaEju"
     let router = Router<MarsRoverNasaApi>()
     
-//    func getPhotoFromURL(url: String, ){
-////        guard let safeUrlString = marsPhotoUrl else{return}
-//        guard let safeUrl = URL(string: safeUrlString) else{return}
-//        
-//        marsPhotoImageView.kf.setImage(with: safeUrl, placeholder: UIImage(named: "placeholder_image"), options: [.transition(.fade(1))], progressBlock: nil) { [weak self] result in
-//            switch result{
-//            case .success(let value):
-//                if value.source.url != safeUrl{
-//                    self?.marsPhotoImageView.image = UIImage(named: "placeholder_image")
-//                }
-//            case .failure(let error):
-//                print("Job failed: \(error.localizedDescription)")
-//            }
-//        }
-//    }
+    //couldn't come up with a good way to not duplicate code here, the networking layer is great for handling different paths that take different parameters, but not so good at handling when the paths are different but the parameters and reponses are the same :(
+    func getOpportunityPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
+        router.request(.opportunity(page: page, camera: camera, earthDate: earthDate)) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.network))
+            }
+            guard let response = response as? HTTPURLResponse,
+                response.hasSuccessStatusCode, let responseData = data else{
+                    completion(.failure(.network))
+                    return
+            }
+            do {
+                let apiResponse = try JSONDecoder().decode(Wrapper<RoverImageData>.self, from: responseData)
+                completion(.success(apiResponse.photos))
+            }catch {
+                completion(.failure(.decoding))
+            }
+        }
+    }
     
+    func getSpiritPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
+        router.request(.spirit(page: page, camera: camera, earthDate: earthDate)) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.network))
+            }
+            guard let response = response as? HTTPURLResponse,
+                response.hasSuccessStatusCode, let responseData = data else{
+                    completion(.failure(.network))
+                    return
+            }
+            do {
+                let apiResponse = try JSONDecoder().decode(Wrapper<RoverImageData>.self, from: responseData)
+                completion(.success(apiResponse.photos))
+            }catch {
+                completion(.failure(.decoding))
+            }
+        }
+    }
+    
+    func getCuriosityPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
+        router.request(.curiosity(page: page, camera: camera, earthDate: earthDate)) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.network))
+            }
+            guard let response = response as? HTTPURLResponse,
+                response.hasSuccessStatusCode, let responseData = data else{
+                    completion(.failure(.network))
+                    return
+            }
+            do {
+                let apiResponse = try JSONDecoder().decode(Wrapper<RoverImageData>.self, from: responseData)
+                completion(.success(apiResponse.photos))
+            }catch {
+                completion(.failure(.decoding))
+            }
+        }
+    }
     
     
     func getRoverPhotos(page: Int, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){

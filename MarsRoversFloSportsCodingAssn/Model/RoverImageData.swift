@@ -8,14 +8,16 @@
 
 import UIKit
 
-struct RoverImageData: Codable{
+struct RoverImageData{
     var id: Int?
     var sol: Int?
     var camera: Camera?
     var imageUrl: String?
     var earthDate: String?
     var rover: Rover?
-    
+}
+
+extension RoverImageData: Codable{
     enum CodingKeys: String, CodingKey{
         case id, sol, camera, rover
         case imageUrl = "img_src"
@@ -23,17 +25,7 @@ struct RoverImageData: Codable{
     }
 }
 
-struct Camera: Codable{
-    var fullName: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case fullName = "full_name"
-    }
-}
 
-struct Rover: Codable{
-    var name: String?
-}
 
 struct Wrapper<T: Decodable>: Decodable {
     let photos: [T]

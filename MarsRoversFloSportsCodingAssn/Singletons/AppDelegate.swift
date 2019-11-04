@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let marsCollectionVC = MarsPhotoCollectionVC(collectionViewLayout: UICollectionViewFlowLayout())
-        let navController = UINavigationController(rootViewController: marsCollectionVC)
+        let roverSearchOptionsVC = RoverSearchOptionsVC()
+//        let marsCollectionVC = MarsPhotoCollectionVC(collectionViewLayout: UICollectionViewFlowLayout())
+        let navController = UINavigationController(rootViewController: roverSearchOptionsVC)
         window?.rootViewController = navController
         return true
     }

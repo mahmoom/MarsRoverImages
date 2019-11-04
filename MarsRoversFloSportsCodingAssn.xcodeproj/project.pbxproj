@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		0EC4B144236E7AEC009B91AD /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B143236E7AEC009B91AD /* Alert.swift */; };
 		0EC4B146236E891C009B91AD /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B145236E891C009B91AD /* NetworkLogger.swift */; };
-		0EC4B149236F185C009B91AD /* ImageDownloaderQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B148236F185C009B91AD /* ImageDownloaderQueue.swift */; };
-		0EC4B14C236F253F009B91AD /* RoverImageDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B14B236F253F009B91AD /* RoverImageDataViewModel.swift */; };
 		0EC4B14E236F3524009B91AD /* MarsPhotoCollectionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B14D236F3524009B91AD /* MarsPhotoCollectionDetailVC.swift */; };
 		0EC4B151236F5F78009B91AD /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B150236F5F77009B91AD /* ImageDownloader.swift */; };
 		0EC4B153236F627D009B91AD /* MarsDetailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B152236F627D009B91AD /* MarsDetailPhotoView.swift */; };
 		0EC4B155236F6567009B91AD /* MarsDetailPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B154236F6567009B91AD /* MarsDetailPhotoViewModel.swift */; };
+		0EC4B157236F8046009B91AD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B156236F8046009B91AD /* Camera.swift */; };
+		0EC4B159236F804B009B91AD /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B158236F804B009B91AD /* Rover.swift */; };
+		0EC4B15B236F83FE009B91AD /* RoverSearchOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B15A236F83FE009B91AD /* RoverSearchOptionsVC.swift */; };
+		0EC4B15D23707209009B91AD /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B15C23707209009B91AD /* UIViewController+Extensions.swift */; };
+		0EC4B15F2370725D009B91AD /* RoverSearchOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B15E2370725C009B91AD /* RoverSearchOptionsView.swift */; };
+		0EC4B16123707E21009B91AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B16023707E21009B91AD /* Constants.swift */; };
+		0EC4B163237083C7009B91AD /* MarsPhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC4B162237083C7009B91AD /* MarsPhotoCollectionView.swift */; };
 		0ECB6A35236A3C9C00F2FFA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6A34236A3C9C00F2FFA6 /* AppDelegate.swift */; };
 		0ECB6A37236A3C9C00F2FFA6 /* MarsPhotoCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6A36236A3C9C00F2FFA6 /* MarsPhotoCollectionVC.swift */; };
 		0ECB6A3A236A3C9C00F2FFA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB6A38236A3C9C00F2FFA6 /* Main.storyboard */; };
@@ -64,12 +69,17 @@
 /* Begin PBXFileReference section */
 		0EC4B143236E7AEC009B91AD /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0EC4B145236E891C009B91AD /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
-		0EC4B148236F185C009B91AD /* ImageDownloaderQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderQueue.swift; sourceTree = "<group>"; };
-		0EC4B14B236F253F009B91AD /* RoverImageDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverImageDataViewModel.swift; sourceTree = "<group>"; };
 		0EC4B14D236F3524009B91AD /* MarsPhotoCollectionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotoCollectionDetailVC.swift; sourceTree = "<group>"; };
 		0EC4B150236F5F77009B91AD /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		0EC4B152236F627D009B91AD /* MarsDetailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsDetailPhotoView.swift; sourceTree = "<group>"; };
 		0EC4B154236F6567009B91AD /* MarsDetailPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsDetailPhotoViewModel.swift; sourceTree = "<group>"; };
+		0EC4B156236F8046009B91AD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		0EC4B158236F804B009B91AD /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
+		0EC4B15A236F83FE009B91AD /* RoverSearchOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverSearchOptionsVC.swift; sourceTree = "<group>"; };
+		0EC4B15C23707209009B91AD /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		0EC4B15E2370725C009B91AD /* RoverSearchOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverSearchOptionsView.swift; sourceTree = "<group>"; };
+		0EC4B16023707E21009B91AD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0EC4B162237083C7009B91AD /* MarsPhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotoCollectionView.swift; sourceTree = "<group>"; };
 		0ECB6A31236A3C9C00F2FFA6 /* MarsRoversFloSportsCodingAssn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsRoversFloSportsCodingAssn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECB6A34236A3C9C00F2FFA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ECB6A36236A3C9C00F2FFA6 /* MarsPhotoCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotoCollectionVC.swift; sourceTree = "<group>"; };
@@ -147,18 +157,9 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		0EC4B147236F1841009B91AD /* ConcurrencyQueues */ = {
-			isa = PBXGroup;
-			children = (
-				0EC4B148236F185C009B91AD /* ImageDownloaderQueue.swift */,
-			);
-			path = ConcurrencyQueues;
-			sourceTree = "<group>";
-		};
 		0EC4B14A236F2526009B91AD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0EC4B14B236F253F009B91AD /* RoverImageDataViewModel.swift */,
 				0EC4B154236F6567009B91AD /* MarsDetailPhotoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -207,7 +208,6 @@
 				0ECB6A62236A434100F2FFA6 /* NetworkController.swift */,
 				0ECB6AE9236E57F700F2FFA6 /* Extensions */,
 				0EC4B142236E7AC6009B91AD /* Helpers */,
-				0EC4B147236F1841009B91AD /* ConcurrencyQueues */,
 				0ECB6AEA236E582700F2FFA6 /* SupportingFiles */,
 			);
 			path = MarsRoversFloSportsCodingAssn;
@@ -304,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				0ECB6A64236A43C800F2FFA6 /* RoverImageData.swift */,
+				0EC4B156236F8046009B91AD /* Camera.swift */,
+				0EC4B158236F804B009B91AD /* Rover.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +315,8 @@
 			children = (
 				0ECB6A66236A590D00F2FFA6 /* MarsPhotoCollectionViewCell.swift */,
 				0EC4B152236F627D009B91AD /* MarsDetailPhotoView.swift */,
+				0EC4B15E2370725C009B91AD /* RoverSearchOptionsView.swift */,
+				0EC4B162237083C7009B91AD /* MarsPhotoCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				0ECB6A36236A3C9C00F2FFA6 /* MarsPhotoCollectionVC.swift */,
+				0EC4B15A236F83FE009B91AD /* RoverSearchOptionsVC.swift */,
 				0EC4B14D236F3524009B91AD /* MarsPhotoCollectionDetailVC.swift */,
 			);
 			path = ViewController;
@@ -330,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				0ECB6A68236A596500F2FFA6 /* UIView+Extensions.swift */,
+				0EC4B15C23707209009B91AD /* UIViewController+Extensions.swift */,
+				0EC4B16023707E21009B91AD /* Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -598,24 +605,29 @@
 				0ECB6A67236A590D00F2FFA6 /* MarsPhotoCollectionViewCell.swift in Sources */,
 				0ECB6ADC236E541400F2FFA6 /* MarsRoverEndPoint.swift in Sources */,
 				0ECB6AE0236E541400F2FFA6 /* DataResponseError.swift in Sources */,
+				0EC4B16123707E21009B91AD /* Constants.swift in Sources */,
 				0ECB6AE2236E541400F2FFA6 /* HTTPUrlResponse.swift in Sources */,
+				0EC4B157236F8046009B91AD /* Camera.swift in Sources */,
 				0ECB6AD8236E541400F2FFA6 /* ParameterEncoding.swift in Sources */,
-				0EC4B149236F185C009B91AD /* ImageDownloaderQueue.swift in Sources */,
 				0EC4B151236F5F78009B91AD /* ImageDownloader.swift in Sources */,
 				0EC4B14E236F3524009B91AD /* MarsPhotoCollectionDetailVC.swift in Sources */,
+				0EC4B159236F804B009B91AD /* Rover.swift in Sources */,
 				0ECB6ADB236E541400F2FFA6 /* NetworkManager.swift in Sources */,
-				0EC4B14C236F253F009B91AD /* RoverImageDataViewModel.swift in Sources */,
 				0EC4B155236F6567009B91AD /* MarsDetailPhotoViewModel.swift in Sources */,
 				0ECB6A37236A3C9C00F2FFA6 /* MarsPhotoCollectionVC.swift in Sources */,
 				0ECB6ADF236E541400F2FFA6 /* HTTPMethod.swift in Sources */,
 				0ECB6AE1236E541400F2FFA6 /* Router.swift in Sources */,
 				0ECB6A35236A3C9C00F2FFA6 /* AppDelegate.swift in Sources */,
 				0ECB6A65236A43C800F2FFA6 /* RoverImageData.swift in Sources */,
+				0EC4B15F2370725D009B91AD /* RoverSearchOptionsView.swift in Sources */,
 				0ECB6A63236A434100F2FFA6 /* NetworkController.swift in Sources */,
 				0ECB6AD9236E541400F2FFA6 /* URLParameterEncoding.swift in Sources */,
 				0ECB6A6B236A5A4300F2FFA6 /* Reusable.swift in Sources */,
 				0EC4B144236E7AEC009B91AD /* Alert.swift in Sources */,
+				0EC4B163237083C7009B91AD /* MarsPhotoCollectionView.swift in Sources */,
+				0EC4B15B236F83FE009B91AD /* RoverSearchOptionsVC.swift in Sources */,
 				0ECB6ADD236E541400F2FFA6 /* NetworkROUTER.swift in Sources */,
+				0EC4B15D23707209009B91AD /* UIViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

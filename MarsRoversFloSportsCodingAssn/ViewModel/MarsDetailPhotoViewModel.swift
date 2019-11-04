@@ -29,7 +29,6 @@ struct MarsDetailPhotoViewModel {
         }
         
         self.eartDateLabelText = "Earth Date: " + (roverData.earthDate ?? "")
-        
         self.roverLabelText = "Rover Name: " + (roverData.rover?.name ?? "")
         self.cameraLabelText = "Camera: " + (roverData.camera?.fullName ?? "")
     }

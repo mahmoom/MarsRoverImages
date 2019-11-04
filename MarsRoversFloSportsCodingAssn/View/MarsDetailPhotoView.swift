@@ -85,13 +85,13 @@ class MarsDetailPhotoView: UIScrollView {
     
     func setupViews(){
         addSubview(marsImageView)
-        marsImageView.fillSuperView()
         addSubview(idLabel)
         addSubview(solLabel)
         addSubview(earthDateLabel)
         addSubview(roverNameLabel)
         addSubview(cameraNameLabel)
         
+        marsImageView.fillSuperView()
         idLabel.anchor(top: safeAreaLayoutGuide.topAnchor, paddingTop: 25, bottom: nil, paddingBottom: 0, left: nil, paddingLeft: 0, right: safeAreaLayoutGuide.rightAnchor, paddingRight: 25, width: 0, height: 0)
         solLabel.anchor(top: idLabel.bottomAnchor, paddingTop: 10, bottom: nil, paddingBottom: 0, left: nil, paddingLeft: 0, right: idLabel.rightAnchor, paddingRight: 0, width: 0, height: 0)
         earthDateLabel.anchor(top: solLabel.bottomAnchor, paddingTop: 10, bottom: nil, paddingBottom: 0, left: nil, paddingLeft: 0, right: idLabel.rightAnchor, paddingRight: 0, width: 0, height: 0)
