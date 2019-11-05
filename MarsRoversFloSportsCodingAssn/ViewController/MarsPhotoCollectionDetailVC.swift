@@ -14,9 +14,6 @@ class MarsPhotoCollectionDetailVC: UIViewController, UIScrollViewDelegate {
     let marsDetailPhotoScrollView = MarsDetailPhotoView()
     
     unowned var marsImageView: UIImageView {return marsDetailPhotoScrollView.marsImageView}
-    unowned var idLabel: UILabel {return marsDetailPhotoScrollView.idLabel}
-    unowned var solLabel: UILabel {return marsDetailPhotoScrollView.solLabel}
-    unowned var eartDateLabel: UILabel {return marsDetailPhotoScrollView.earthDateLabel}
     
     init(marsRoverImageObject: RoverImageData) {
         self.roverImageObject = marsRoverImageObject
