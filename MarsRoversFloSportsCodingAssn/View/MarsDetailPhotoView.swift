@@ -100,7 +100,7 @@ class MarsDetailPhotoView: UIScrollView {
     }
     
     func setupViews(with marsDetailPhotoViewModel: MarsDetailPhotoViewModel){
-        self.earthDateLabel.text = marsDetailPhotoViewModel.eartDateLabelText
+        self.earthDateLabel.text = marsDetailPhotoViewModel.earthDateLabelText
         self.idLabel.text = marsDetailPhotoViewModel.idLabelText
         self.solLabel.text = marsDetailPhotoViewModel.solLabelText
         self.roverNameLabel.text = marsDetailPhotoViewModel.roverLabelText

@@ -25,6 +25,13 @@ extension RoverImageData: Codable{
     }
 }
 
+extension RoverImageData: Equatable {
+    static func == (lhs: RoverImageData, rhs: RoverImageData) -> Bool {
+        return lhs.id == rhs.id && lhs.sol == rhs.sol && lhs.camera == rhs.camera && lhs.imageUrl == rhs.imageUrl && lhs.earthDate == rhs.earthDate && lhs.rover == rhs.rover
+    }
+}
+
+
 
 
 struct Wrapper<T: Decodable>: Decodable {

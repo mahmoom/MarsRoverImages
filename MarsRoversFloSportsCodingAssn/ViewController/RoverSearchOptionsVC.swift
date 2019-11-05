@@ -21,6 +21,8 @@ class RoverSearchOptionsVC: UIViewController {
     unowned var cameraSeletionDropDown: DropDown {return roverSearchOptionsView.cameraSeletionDropDown}
     unowned var roverSeletionDropDown: DropDown {return roverSearchOptionsView.roverSeletionDropDown}
     
+    
+    
     //MARK: Variables
     var cameraDropDownDataSource = [String]()
     var roverDropDownDataSource = [String]()
@@ -134,7 +136,6 @@ class RoverSearchOptionsVC: UIViewController {
     }
 
     @objc func showPhotoGallery(){
-        
         guard let roverText = roverSelectionLabel.text, let roverEnumVal = Rovers(rawValue: roverText), let cameraText = cameraSelectionLabel.text, let cameraEnumVal = AllCameras(rawValue: cameraText), let dateText = dateTextField.text else{
             Alert.showBasic(title: "Sorry", message: "You entered some information we are unable to process", vc: self)
             return
@@ -142,11 +143,11 @@ class RoverSearchOptionsVC: UIViewController {
         let marsCollectionVC = MarsPhotoCollectionVC(collectionViewLayout: UICollectionViewFlowLayout())
         marsCollectionVC.roverToSearch = roverEnumVal
         marsCollectionVC.cameraToSearch = cameraEnumVal
-        marsCollectionVC.date = convertDateToAPIType(dateText)
+        marsCollectionVC.date = convertDateToAPIFormat(dateText)
         self.navigationController?.pushViewController(marsCollectionVC, animated: true)
     }
     
-    func convertDateToAPIType(_ dateString: String) -> String{
+    func convertDateToAPIFormat(_ dateString: String) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd,yyyy"
         guard let date = dateFormatter.date(from: dateString) else{

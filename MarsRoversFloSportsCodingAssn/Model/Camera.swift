@@ -27,3 +27,9 @@ extension Camera: Codable {
         case fullName = "full_name"
     }
 }
+
+extension Camera: Equatable {
+    static func == (lhs: Camera, rhs: Camera) -> Bool {
+        return lhs.fullName == rhs.fullName
+    }
+}

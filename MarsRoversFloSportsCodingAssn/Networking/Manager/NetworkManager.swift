@@ -8,7 +8,6 @@
 //
 
 import Foundation
-import Kingfisher
 
 protocol NetworkManagerProtocol {
     func getRoverPhotos(page: Int, completion: @escaping (Result<[RoverImageData], DataResponseError>)->())

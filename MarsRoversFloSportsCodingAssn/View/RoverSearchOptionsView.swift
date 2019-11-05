@@ -113,6 +113,7 @@ class RoverSearchOptionsView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Search!", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     
@@ -130,7 +131,7 @@ class RoverSearchOptionsView: UIView {
     }
     
     func setupViews(){
-        backgroundColor = .white
+        backgroundColor = .systemRed
         addSubview(instructionsLabel)
         
         addSubview(overallStackView)

@@ -8,6 +8,7 @@
 
 import UIKit
 class MarsPhotoCollectionView: UICollectionView{
+    
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.hidesWhenStopped = true
@@ -44,6 +45,7 @@ class MarsPhotoCollectionView: UICollectionView{
     }
     
     func createSubviews(){
+        backgroundColor = .black
         addSubview(emptyCollectionLabel)
         addSubview(activityIndicator)
         

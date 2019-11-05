@@ -15,3 +15,9 @@ struct Rover: Codable{
 enum Rovers: String, CaseIterable {
     case curiosity, spirit, opportunity
 }
+
+extension Rover: Equatable {
+    static func == (lhs: Rover, rhs: Rover) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
