@@ -34,10 +34,11 @@ class MarsPhotoCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(MarsPhotoCollectionViewCell.self)
-        self.title = "Mars Rover Images"
         getPhotosFromAPI()
+        collectionView.register(MarsPhotoCollectionViewCell.self)
         collectionView?.prefetchDataSource = self
+        collectionView?.dataSource = self
+        self.title = "Mars Rover Images"
     }
     
     //MARK: Network function
@@ -124,7 +125,6 @@ private extension MarsPhotoCollectionVC {
     }
     
     func onFetchCompleted(with newIndexPathsToInsert: [IndexPath]?) {
-        
         guard let newIndexPathsToReload = newIndexPathsToInsert else {
             activityIndicator.stopAnimating()
             return
@@ -161,7 +161,6 @@ extension MarsPhotoCollectionVC{
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as MarsPhotoCollectionViewCell
         cell.marsPhotoImageView.kf.cancelDownloadTask()
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -169,7 +168,6 @@ extension MarsPhotoCollectionVC{
         let detailController = MarsPhotoCollectionDetailVC(marsRoverImageObject: marsRoverObject)
         self.navigationController?.pushViewController(detailController, animated: true)
     }
-    
 }
 
 

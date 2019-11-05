@@ -29,7 +29,6 @@
 		0ECB6A3A236A3C9C00F2FFA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB6A38236A3C9C00F2FFA6 /* Main.storyboard */; };
 		0ECB6A3C236A3C9E00F2FFA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB6A3B236A3C9E00F2FFA6 /* Assets.xcassets */; };
 		0ECB6A3F236A3C9E00F2FFA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB6A3D236A3C9E00F2FFA6 /* LaunchScreen.storyboard */; };
-		0ECB6A55236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6A54236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.swift */; };
 		0ECB6A65236A43C800F2FFA6 /* RoverImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6A64236A43C800F2FFA6 /* RoverImageData.swift */; };
 		0ECB6A67236A590D00F2FFA6 /* MarsPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6A66236A590D00F2FFA6 /* MarsPhotoCollectionViewCell.swift */; };
 		0ECB6A69236A596500F2FFA6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6A68236A596500F2FFA6 /* UIView+Extensions.swift */; };
@@ -48,18 +47,10 @@
 		0ECB6AE3236E541400F2FFA6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB6AD7236E541400F2FFA6 /* EndPointType.swift */; };
 		6CBC6D4F17334840975477E6 /* Pods_MarsRoversFloSportsCodingAssn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB720998788A11DD1A88A2F8 /* Pods_MarsRoversFloSportsCodingAssn.framework */; };
 		F0E8673A5B5C04BF58C46102 /* Pods_MarsRoversFloSportsCodingAssnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C5BF7CB8E22550F1868BEF /* Pods_MarsRoversFloSportsCodingAssnTests.framework */; };
-		FF1CDD8A74EEC8BB48C2D7E6 /* Pods_MarsRoversFloSportsCodingAssnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFBC37270BE38E3CA51FC63 /* Pods_MarsRoversFloSportsCodingAssnUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0ECB6A46236A3C9F00F2FFA6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0ECB6A29236A3C9C00F2FFA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0ECB6A30236A3C9C00F2FFA6;
-			remoteInfo = MarsRoversFloSportsCodingAssn;
-		};
-		0ECB6A51236A3C9F00F2FFA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0ECB6A29236A3C9C00F2FFA6 /* Project object */;
 			proxyType = 1;
@@ -95,9 +86,6 @@
 		0ECB6A40236A3C9E00F2FFA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ECB6A45236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarsRoversFloSportsCodingAssnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECB6A4B236A3C9F00F2FFA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0ECB6A50236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarsRoversFloSportsCodingAssnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0ECB6A54236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoversFloSportsCodingAssnUITests.swift; sourceTree = "<group>"; };
-		0ECB6A56236A3C9F00F2FFA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ECB6A64236A43C800F2FFA6 /* RoverImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverImageData.swift; sourceTree = "<group>"; };
 		0ECB6A66236A590D00F2FFA6 /* MarsPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ECB6A68236A596500F2FFA6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -142,14 +130,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0ECB6A4D236A3C9F00F2FFA6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FF1CDD8A74EEC8BB48C2D7E6 /* Pods_MarsRoversFloSportsCodingAssnUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -190,7 +170,6 @@
 			children = (
 				0ECB6A33236A3C9C00F2FFA6 /* MarsRoversFloSportsCodingAssn */,
 				0ECB6A48236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnTests */,
-				0ECB6A53236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests */,
 				0ECB6A32236A3C9C00F2FFA6 /* Products */,
 				D3464B8D057B2E4965B55172 /* Pods */,
 				C9938929D08C4FD0C25CA7A4 /* Frameworks */,
@@ -202,7 +181,6 @@
 			children = (
 				0ECB6A31236A3C9C00F2FFA6 /* MarsRoversFloSportsCodingAssn.app */,
 				0ECB6A45236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnTests.xctest */,
-				0ECB6A50236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,15 +213,6 @@
 				0ECB6A4B236A3C9F00F2FFA6 /* Info.plist */,
 			);
 			path = MarsRoversFloSportsCodingAssnTests;
-			sourceTree = "<group>";
-		};
-		0ECB6A53236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0ECB6A54236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.swift */,
-				0ECB6A56236A3C9F00F2FFA6 /* Info.plist */,
-			);
-			path = MarsRoversFloSportsCodingAssnUITests;
 			sourceTree = "<group>";
 		};
 		0ECB6AC7236E541300F2FFA6 /* Networking */ = {
@@ -430,25 +399,6 @@
 			productReference = 0ECB6A45236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0ECB6A4F236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0ECB6A5F236A3C9F00F2FFA6 /* Build configuration list for PBXNativeTarget "MarsRoversFloSportsCodingAssnUITests" */;
-			buildPhases = (
-				E1D3F5A370B3AB1C2B1569EF /* [CP] Check Pods Manifest.lock */,
-				0ECB6A4C236A3C9F00F2FFA6 /* Sources */,
-				0ECB6A4D236A3C9F00F2FFA6 /* Frameworks */,
-				0ECB6A4E236A3C9F00F2FFA6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0ECB6A52236A3C9F00F2FFA6 /* PBXTargetDependency */,
-			);
-			name = MarsRoversFloSportsCodingAssnUITests;
-			productName = MarsRoversFloSportsCodingAssnUITests;
-			productReference = 0ECB6A50236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -463,10 +413,6 @@
 						CreatedOnToolsVersion = 10.3;
 					};
 					0ECB6A44236A3C9F00F2FFA6 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 0ECB6A30236A3C9C00F2FFA6;
-					};
-					0ECB6A4F236A3C9F00F2FFA6 = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 0ECB6A30236A3C9C00F2FFA6;
 					};
@@ -487,7 +433,6 @@
 			targets = (
 				0ECB6A30236A3C9C00F2FFA6 /* MarsRoversFloSportsCodingAssn */,
 				0ECB6A44236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnTests */,
-				0ECB6A4F236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -504,13 +449,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0ECB6A43236A3C9F00F2FFA6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0ECB6A4E236A3C9F00F2FFA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,28 +491,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MarsRoversFloSportsCodingAssnTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1D3F5A370B3AB1C2B1569EF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MarsRoversFloSportsCodingAssnUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -655,14 +571,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0ECB6A4C236A3C9F00F2FFA6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0ECB6A55236A3C9F00F2FFA6 /* MarsRoversFloSportsCodingAssnUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -670,11 +578,6 @@
 			isa = PBXTargetDependency;
 			target = 0ECB6A30236A3C9C00F2FFA6 /* MarsRoversFloSportsCodingAssn */;
 			targetProxy = 0ECB6A46236A3C9F00F2FFA6 /* PBXContainerItemProxy */;
-		};
-		0ECB6A52236A3C9F00F2FFA6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0ECB6A30236A3C9C00F2FFA6 /* MarsRoversFloSportsCodingAssn */;
-			targetProxy = 0ECB6A51236A3C9F00F2FFA6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -894,46 +797,6 @@
 			};
 			name = Release;
 		};
-		0ECB6A60236A3C9F00F2FFA6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6654D3EBF155B337673D763 /* Pods-MarsRoversFloSportsCodingAssnUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MarsRoversFloSportsCodingAssnUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.MarsRoversFloSportsCodingAssnUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MarsRoversFloSportsCodingAssn;
-			};
-			name = Debug;
-		};
-		0ECB6A61236A3C9F00F2FFA6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAC5EA863C40C4B6ECB09E1F /* Pods-MarsRoversFloSportsCodingAssnUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MarsRoversFloSportsCodingAssnUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.MarsRoversFloSportsCodingAssnUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MarsRoversFloSportsCodingAssn;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -960,15 +823,6 @@
 			buildConfigurations = (
 				0ECB6A5D236A3C9F00F2FFA6 /* Debug */,
 				0ECB6A5E236A3C9F00F2FFA6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0ECB6A5F236A3C9F00F2FFA6 /* Build configuration list for PBXNativeTarget "MarsRoversFloSportsCodingAssnUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0ECB6A60236A3C9F00F2FFA6 /* Debug */,
-				0ECB6A61236A3C9F00F2FFA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

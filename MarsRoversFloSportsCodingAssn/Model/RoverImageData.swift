@@ -31,9 +31,6 @@ extension RoverImageData: Equatable {
     }
 }
 
-
-
-
 struct Wrapper<T: Decodable>: Decodable {
     let photos: [T]
 }
