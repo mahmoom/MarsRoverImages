@@ -1,7 +1,7 @@
 //
 //  NetworkManager.swift
 //
-//  price-test
+//  MarsRoversFloSportsCodingAssn
 //
 //  Created by Suhaib Mahmood on 11/1/19.
 //  Copyright © 2019 test. All rights reserved.
