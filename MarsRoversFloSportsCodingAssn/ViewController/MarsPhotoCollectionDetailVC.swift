@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MarsPhotoCollectionDetailVC: UIViewController, UIScrollViewDelegate {
     
@@ -41,9 +42,11 @@ class MarsPhotoCollectionDetailVC: UIViewController, UIScrollViewDelegate {
         let marsDetailPhotoViewModel = MarsDetailPhotoViewModel(roverData: roverImageObject)
         marsDetailPhotoScrollView.setupViews(with: marsDetailPhotoViewModel)
         
-        guard let imageUrl = roverImageObject.imageUrl else{return}
-        let imageDownloader = ImageDownloader()
-        imageDownloader.downloadImageCacheAndAssignToImageView(imageUrl: imageUrl, imageView: marsImageView)
+        guard let imageUrlString = roverImageObject.imageUrl, let imageUrl = URL(string: imageUrlString) else{return}
+//        let imageDownloader = ImageDownloader()
+//        imageDownloader.downloadImageCacheAndAssignToImageView(imageUrl: imageUrl, imageView: marsImageView)
+        marsImageView.kf.setImage(with: imageUrl,
+        placeholder: UIImage(named: "placeholder_image"))
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

@@ -17,9 +17,7 @@ enum NetworkEnvironment {
 
 public enum MarsRoverNasaApi {
     case page(page: Int)
-    case curiosity(page: Int, camera: String?, earthDate: String)
-    case spirit(page: Int, camera: String?, earthDate: String)
-    case opportunity(page: Int, camera: String?, earthDate: String)
+    case rover(page: Int, camera: String?, earthDate: String, rover: String)
     case def
 }
 
@@ -37,12 +35,8 @@ extension MarsRoverNasaApi: EndPointType {
     
     var path: String {
         switch self {
-        case .curiosity(_):
-            return "mars-photos/api/v1/rovers/curiosity/photos"
-        case .opportunity(_):
-            return "mars-photos/api/v1/rovers/opportunity/photos"
-        case .spirit(_):
-            return "mars-photos/api/v1/rovers/spirit/photos"
+        case .rover(_, _, _, let rover):
+            return "mars-photos/api/v1/rovers/\(rover)/photos"
         default:
             return "mars-photos/api/v1/rovers/curiosity/photos"
         }
@@ -71,18 +65,11 @@ extension MarsRoverNasaApi: EndPointType {
                                       bodyEncoding: .urlEncoding,
                                       urlParameters: ["page":page,
                                                       "sol":1000, "api_key":NetworkManager.NasaAPIKey])
-        case .curiosity(let page, let camera, let earthDate):
+            
+        case .rover(let page, let camera, let earthDate, _):
             return .requestParameters(bodyParameters: nil,
                                       bodyEncoding: .urlEncoding,
                                       urlParameters: generateParams(page: page, earthDate: earthDate, camera: camera))
-        case .opportunity(let page, let camera, let earthDate):
-            return .requestParameters(bodyParameters: nil,
-                                  bodyEncoding: .urlEncoding,
-                                  urlParameters: generateParams(page: page, earthDate: earthDate, camera: camera))
-        case .spirit(let page, let camera, let earthDate):
-            return .requestParameters(bodyParameters: nil,
-                                  bodyEncoding: .urlEncoding,
-                                  urlParameters: generateParams(page: page, earthDate: earthDate, camera: camera))
         default:
             return .requestParameters(bodyParameters: nil,
                                       bodyEncoding: .urlEncoding,

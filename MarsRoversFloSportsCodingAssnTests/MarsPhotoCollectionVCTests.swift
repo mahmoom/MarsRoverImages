@@ -14,6 +14,7 @@ class MarsPhotoCollectionVCTests: XCTestCase {
 
     var marsPhotoCollectionVC: MarsPhotoCollectionVC!
     var mockNetwork: MockNetwork!
+    var mockServiceFail: MockNetworkFailure!
     
     override func setUp() {
         super.setUp()
@@ -61,22 +62,28 @@ class MarsPhotoCollectionVCTests: XCTestCase {
         XCTAssertEqual(roverPhotoObjectsBeforeAppend, marsPhotoCollectionVC.roverPhotoObjects)
     }
     
+    func testFetchPhotosFail(){
+           marsPhotoCollectionVC.isFetchInProgress = false
+           let mockServiceFail = MockNetworkFailure()
+           let roverPhotoObjectsBeforeAppend = marsPhotoCollectionVC.roverPhotoObjects
+           //perform network call to update roverPhotoObjects datasource
+           marsPhotoCollectionVC.getPhotosFromAPI(networkManager: mockServiceFail)
+           //rover photos should not be changed
+           XCTAssertEqual(roverPhotoObjectsBeforeAppend, marsPhotoCollectionVC.roverPhotoObjects)
+       }
+    
 
     struct MockNetwork: NetworkManagerProtocol {
         
         var result = [RoverImageData(id: 10, sol: 1000, camera: Camera(fullName: "MHAZ"), imageUrl: nil, earthDate: Constants.defaultEarthDate, rover: Rover(name: "curiosity")), RoverImageData(id: 10, sol: 1000, camera: Camera(fullName: "MHAZ"), imageUrl: nil, earthDate: Constants.defaultEarthDate, rover: Rover(name: "curiosity"))]
-        
-        func getRoverPhotos(page: Int, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
+        func getRoverPhotos(page: Int, earthDate: String, rover: String, camera: String?, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
             completion(.success(result))
         }
-        func getCuriosityPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
-            completion(.success(result))
-        }
-        func getOpportunityPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
-            completion(.success(result))
-        }
-        func getSpiritPhotos(page: Int, camera: String?, earthDate: String, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
-            completion(.success(result))
+    }
+    
+    struct MockNetworkFailure: NetworkManagerProtocol {
+        func getRoverPhotos(page: Int, earthDate: String, rover: String, camera: String?, completion: @escaping (Result<[RoverImageData], DataResponseError>)->()){
+            completion(.failure(.network))
         }
     }
 }

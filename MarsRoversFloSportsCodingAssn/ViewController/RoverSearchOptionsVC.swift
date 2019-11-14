@@ -148,13 +148,22 @@ class RoverSearchOptionsVC: UIViewController {
     }
     
     func convertDateToAPIFormat(_ dateString: String) -> String{
+//        print(dateString)//this used to work...?
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MMM dd,yyyy"
+//        guard let date = dateFormatter.date(from: dateString) else{
+//            return Constants.defaultEarthDate
+//        }
+//        dateFormatter.dateFormat = "yyyy-MM-DD"
+//        let dateString = dateFormatter.string(from: date)
+//        print(dateString)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd,yyyy"
-        guard let date = dateFormatter.date(from: dateString) else{
+        let date = dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let safeDate = date else {
             return Constants.defaultEarthDate
         }
-        dateFormatter.dateFormat = "yyyy-MM-DD"
-        let dateString = dateFormatter.string(from: date)
-        return dateString
+        return  dateFormatter.string(from: safeDate)
     }
 }

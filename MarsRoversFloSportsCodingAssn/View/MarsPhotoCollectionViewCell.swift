@@ -20,7 +20,14 @@ class MarsPhotoCollectionViewCell: UICollectionViewCell{
         return imageView
     }()
     
-    var marsPhotoUrl: String?
+    var marsPhotoUrl: String?{
+        didSet{
+            guard let safeUrlString = marsPhotoUrl, let safeUrl = URL(string: safeUrlString) else{return}
+            marsPhotoImageView.kf.setImage(with: safeUrl,
+                                  placeholder: UIImage(named: "placeholder_image"),
+                                  options: [.transition(.fade(1))])
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

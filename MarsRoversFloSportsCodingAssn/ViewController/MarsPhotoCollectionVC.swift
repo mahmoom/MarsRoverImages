@@ -57,49 +57,33 @@ class MarsPhotoCollectionVC: UICollectionViewController {
             camera = cameraToSearch.rawValue
         }
         
-        //I had to abstract away the handleNetwork result, but before I enabled rover selection by the user, this was all just here as one function. I don't like this below, but the networking layer is great for handling different url paths with different parameters, but not great at handling different paths with the same params...open to suggestions on how to address that :)
-        switch roverToSearch {
-        case .curiosity:
-            networkManager.getCuriosityPhotos(page: currentPage, camera: camera, earthDate: date) { [weak self] (result) in
-                self?.handleNetworkRequestResult(result)
-            }
-        case .opportunity:
-            networkManager.getOpportunityPhotos(page: currentPage, camera: camera, earthDate: date) { [weak self] (result) in
-                self?.handleNetworkRequestResult(result)
-            }
-        case .spirit:
-            networkManager.getSpiritPhotos(page: currentPage, camera: camera, earthDate: date) { [weak self] (result) in
-                self?.handleNetworkRequestResult(result)
-            }
-        }
-    }
-    
-    func handleNetworkRequestResult(_ result: Result<[RoverImageData], DataResponseError>){
-        
-        switch result{
-        case .success(let photoResults):
-            self.roverPhotoObjects.append(contentsOf: photoResults)
-            self.currentPage += 1
-            self.isFetchInProgress = false
-            DispatchQueue.main.async{
-                self.activityIndicator.startAnimating()
-                if self.currentPage > 1{
-                    let indexPathsToReload = self.calculateIndexPathsToReload(from: photoResults)
-                    self.onFetchCompleted(with: indexPathsToReload)
-                } else {
-                    self.onFetchCompleted(with: .none)
-                }
-                
-                if photoResults.isEmpty && self.roverPhotoObjects.isEmpty{
-                    self.emptyCollectionLabel.isHidden = false
-                }
-            }
-        case .failure(let error):
-            DispatchQueue.main.async{
+        networkManager.getRoverPhotos(page: currentPage, earthDate: date, rover: roverToSearch.rawValue, camera: camera){ [weak self] (result) in
+            guard let self = self else{return} //YAY SWFIT 4.2+!!!
+            switch result{
+            case .success(let photoResults):
+                self.roverPhotoObjects.append(contentsOf: photoResults)
+                self.currentPage += 1
                 self.isFetchInProgress = false
-                print(error.reason)
-                let message = "We encountered a problem fetching the photos you requested. Please try again later"
-                self.onFetchFailed(with: message)
+                DispatchQueue.main.async{
+                    self.activityIndicator.startAnimating()
+                    if self.currentPage > 1{
+                        let indexPathsToReload = self.calculateIndexPathsToReload(from: photoResults)
+                        self.onFetchCompleted(with: indexPathsToReload)
+                    } else {
+                        self.onFetchCompleted(with: .none)
+                    }
+                    
+                    if photoResults.isEmpty && self.roverPhotoObjects.isEmpty{
+                        self.emptyCollectionLabel.isHidden = false
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async{
+                    self.isFetchInProgress = false
+                    print(error.reason)
+                    let message = "We encountered a problem fetching the photos you requested. Please try again later"
+                    self.onFetchFailed(with: message)
+                }
             }
         }
     }
@@ -115,7 +99,23 @@ private extension MarsPhotoCollectionVC {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         //since we are showing 3 items per row, we want to start loading as we near the end of the scroll
         let count = roverPhotoObjects.count - 6
-        return indexPath.row >= count
+        if indexPath.row >= count{
+            return true
+        }
+        
+        //if user is scrolling too quickly and prefetchItems doesn't return desired index
+        
+        // calculated the distance from the bottom of the scrollview.
+        let distanceFromBottom = collectionView.contentSize.height - (collectionView.bounds.size.height - collectionView.contentInset.bottom) - collectionView.contentOffset.y
+        
+        // if we are at the bottom of view and above if statement didn't execute
+        // we check to see if fetch is in progress, but network call already does this
+        // this is better for readability though
+        if distanceFromBottom < 50 && !isFetchInProgress{
+            return true
+        }
+        
+        return false
     }
     
     private func calculateIndexPathsToReload(from newMarsPhotos: [RoverImageData]) -> [IndexPath]? {
@@ -148,9 +148,9 @@ extension MarsPhotoCollectionVC{
         guard let imageUrl = roverPhotoObjects[indexPath.row].imageUrl else{return cell}
         cell.marsPhotoUrl = imageUrl
         
-        //use KingFisher to handle image download and caching
-        let imageDownloader = ImageDownloader()
-        imageDownloader.downloadImageCacheAndAssignToImageView(imageUrl: imageUrl, imageView: cell.marsPhotoImageView)
+        //use KingFisher to handle image download and caching, or we could set in the cell. It IS technically a network call, but this could be handled either way at this time
+//        let imageDownloader = ImageDownloader()
+//        imageDownloader.downloadImageCacheAndAssignToImageView(imageUrl: imageUrl, imageView: cell.marsPhotoImageView)
         return cell
     }
     
@@ -158,7 +158,8 @@ extension MarsPhotoCollectionVC{
         return roverPhotoObjects.count
     }
     
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as MarsPhotoCollectionViewCell
         cell.marsPhotoImageView.kf.cancelDownloadTask()
     }
@@ -176,16 +177,6 @@ extension MarsPhotoCollectionVC: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
             getPhotosFromAPI()
-        } else{
-            //if user is scrolling too quickly and prefetchItems doesn't return desired index
-            
-            // calculated the distance from the bottom of the scrollview.
-            let distanceFromBottom = collectionView.contentSize.height - (collectionView.bounds.size.height - collectionView.contentInset.bottom) - collectionView.contentOffset.y
-            
-            // if we are at the bottom of view and above if statement didn't execute
-            if distanceFromBottom < 50 {
-                getPhotosFromAPI()
-            }
         }
     }
 }
